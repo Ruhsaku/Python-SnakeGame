@@ -11,15 +11,23 @@ screen.bgcolor("black")
 screen.title("My Snake Game!")
 screen.tracer(0)
 
+snake = Snake()
+
+screen.listen()
+screen.onkey(fun=snake.move_up, key="Up")
+screen.onkey(fun=snake.move_down, key="Down")
+screen.onkey(fun=snake.move_left, key="Left")
+screen.onkey(fun=snake.move_right, key="Right")
+
 # Variables
 game_is_on = True
 
 # Create the snake
-snake = Snake()
+
 
 while game_is_on:
     screen.update()  # Updates the screen when the for loop is over
-    time.sleep(0.2)  # Add a delay in the movement
+    time.sleep(0.1)  # Add a delay in the movement
     snake.move()
 
 screen.exitonclick()
